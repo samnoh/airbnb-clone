@@ -5,8 +5,9 @@ from . import models
 
 @admin.register(models.User)
 class CustomUserAdmin(UserAdmin):
-
-    """ Custom User Admin """
+    """
+    Custom User Admin Panel
+    """
 
     fieldsets = UserAdmin.fieldsets + (
         (
