@@ -8,10 +8,7 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument(
-            "--number",
-            type=int,
-            default=1,
-            help="How many users do you want to create?",
+            "--number", type=int, default=1, help="How many users you want to create"
         )
 
     def handle(self, *args, **options):
