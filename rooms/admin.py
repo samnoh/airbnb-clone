@@ -12,7 +12,7 @@ class ItemAdmin(admin.ModelAdmin):
     list_display = ("name", "count_used_by")
 
     def count_used_by(self, obj):
-        return str(obj.rooms.count())
+        return obj.rooms.count()
 
 
 @admin.register(models.Photo)
@@ -96,9 +96,9 @@ class RoomAdmin(admin.ModelAdmin):
     filter_horizontal = ("amenities", "facilities", "house_rules")
 
     def count_amenities(self, obj):
-        return str(obj.amenities.count())
+        return obj.amenities.count()
 
     def count_photos(self, obj):
-        return str(obj.photos.count())
+        return obj.photos.count()
 
     count_photos.short_description = "Photo Count"
