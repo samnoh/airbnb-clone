@@ -151,3 +151,8 @@ EMAIL_FROM = os.environ.get("MAILGUN_FROM")
 GITHUB_ID = os.environ.get("GITHUB_ID")
 
 GITHUB_SECRET = os.environ.get("GITHUB_SECRET")
+
+
+# Kakao OAuth config
+
+KAKAO_ID = os.environ.get("KAKAO_ID")
