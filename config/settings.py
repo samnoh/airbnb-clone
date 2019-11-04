@@ -136,6 +136,17 @@ MEDIA_URL = "/media/"
 # Email Config
 
 EMAIL_HOST = "smtp.mailgun.org"
+
 EMAIL_PORT = "25"
+
 EMAIL_HOST_USER = os.environ.get("MAILGUN_USERNAME")
+
 EMAIL_HOST_PASSWORD = os.environ.get("MAILGUN_PASSWORD")
+
+EMAIL_FROM = os.environ.get("MAILGUN_FROM")
+
+# GitHub OAuth config
+
+GITHUB_ID = os.environ.get("GITHUB_ID")
+
+GITHUB_SECRET = os.environ.get("GITHUB_SECRET")
