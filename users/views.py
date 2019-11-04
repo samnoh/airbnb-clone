@@ -1,4 +1,3 @@
-import os
 import requests
 from django.conf import settings
 from django.views.generic import FormView
