@@ -59,16 +59,16 @@ def complete_verification(request, key):
     return redirect(reverse("core:home"))
 
 
+class GitHubException(Exception):
+    pass
+
+
 def github_login(request):
     client_id = settings.GITHUB_ID
     redirect_uri = "http://127.0.0.1:8000/users/login/github/callback"
     return redirect(
         f"https://github.com/login/oauth/authorize?client_id={client_id}&redirect_uri={redirect_uri}&scope=read:user"
     )
-
-
-class GitHubException(Exception):
-    pass
 
 
 def github_callback(request):
