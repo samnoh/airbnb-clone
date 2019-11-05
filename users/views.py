@@ -31,10 +31,12 @@ def log_out(request):
 
 
 class SignUpView(FormView):
+    """ SignUpView """
+
     template_name = "users/signup.html"
     form_class = forms.SignUpForm
     success_url = reverse_lazy("core:home")
-    initial = {"first_name": "Smith", "last_name": "John", "email": "123@test.com"}
+    initial = {"first_name": "John", "last_name": "Smith", "email": "123@test.com"}
 
     def form_valid(self, form):
         form.save()

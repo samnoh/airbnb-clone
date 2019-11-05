@@ -2,18 +2,30 @@
 @tailwind components;
 
 .search-box {
-    transition: box-shadow .2s linear;
+    transition: box-shadow 0.2s linear;
 }
 
 .nav-link {
     @apply ml-8 border-b-2 border-white h-full flex items-center;
 
     &:hover {
-        @apply border-gray-600
+        @apply border-gray-600;
     }
 
     a {
         @apply py-10 px-4;
+    }
+}
+
+.btn {
+    @apply w-full text-center rounded-sm py-4 font-light text-lg;
+}
+
+input {
+    @apply w-full text-center rounded-sm py-4 font-light text-lg text-left border border-gray-600 px-5;
+
+    &:focus {
+        @apply outline-none border-teal-500;
     }
 }
 

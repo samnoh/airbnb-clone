@@ -12,11 +12,15 @@ Log In
 <div class="container md:w-1/2 lg:w-5/12 xl:w-1/4 mx-auto my-10 flex flex-col items-center border border-gray-400 p-6">
 
     {% include 'partials/social_login.html' %}
-    <form method="POST" action="{% url "users:login" %}">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Login</button>
-    </form>
+
+    {% include 'mixins/forms/auth_form.html' with form=form cta="Log in" %}
+
+    <div class="text-teal-500 mt-4"><a href="#">Forgot password?</a></div>
+    <div class="w-full h-px my-4 bg-gray-400"></div>
+    <div class="w-full">
+        <span class="mr-1 text-gray-700">Don’t have an account?</span>
+        <a class="text-teal-500 font-medium" href="{% url 'users:signup' %}">Sign up</a>
+    </div>
 </div>
 
 {% endblock content %}
