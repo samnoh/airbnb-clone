@@ -18,5 +18,8 @@
 ## Screenshots
 
 <kbd>
-    <img src="" width="100%" />
+    <img src="img/main_page.png" width="100%" />
+</kbd>
+<kbd>
+    <img src="img/login_page.png" width="100%" />
 </kbd>
