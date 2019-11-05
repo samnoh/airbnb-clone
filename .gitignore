@@ -7,3 +7,5 @@ dist/
 .vscode
 db.*
 uploads
+node_modules
+static
