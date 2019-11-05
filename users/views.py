@@ -4,6 +4,7 @@ from django.views.generic import FormView
 from django.shortcuts import redirect, reverse
 from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
+from django.core.files.base import ContentFile
 from . import forms, models
 
 
@@ -102,6 +103,7 @@ def github_callback(request):
                         "email"
                     )  # public email should be turned on
                     bio = profile_json.get("bio")
+                    profile_image = profile_json.get("avatar_url")
                     try:
                         user = models.User.objects.get(email=email)
                         if user.login_method != models.User.LOGIN_GITHUB:
@@ -117,6 +119,11 @@ def github_callback(request):
                         )
                         user.set_unusable_password()
                         user.save()
+                        if profile_image is not None:
+                            image = requests.get(profile_image)
+                            user.avatar.save(
+                                f"{email}-avatar", ContentFile(image.content)
+                            )
                     login(request, user)
                     return redirect(reverse("core:home"))
                 else:
@@ -180,6 +187,11 @@ def kakao_callback(request):
                     )
                     user.set_unusable_password()
                     user.save()
+                    if profile_image is not None:
+                        image = requests.get(profile_image)
+                        user.avatar.save(
+                            f"{nickname}-avatar", ContentFile(image.content)
+                        )
                 login(request, user)
                 return redirect(reverse("core:home"))
     except KakaoException:
