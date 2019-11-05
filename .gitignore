@@ -8,4 +8,4 @@ dist/
 db.*
 uploads
 node_modules
-static
+static/css
