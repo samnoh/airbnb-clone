@@ -19,6 +19,10 @@
 
 .btn {
     @apply w-full text-center rounded-sm py-4 font-light text-lg;
+
+    &.btn--small {
+        @apply w-3/5 py-3 rounded-lg;
+    }
 }
 
 input {
