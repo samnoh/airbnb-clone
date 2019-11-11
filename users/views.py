@@ -131,7 +131,7 @@ def github_callback(request):
                                 f"{email}-avatar", ContentFile(image.content)
                             )
                     login(request, user)
-                    messages.success(request, f"Welcome {user.username}")
+                    messages.success(request, f"Welcome, {user.first_name}!")
                     return redirect(reverse("core:home"))
                 else:
                     raise GitHubException("Cannot get your profile")
@@ -200,7 +200,7 @@ def kakao_callback(request):
                             f"{nickname}-avatar", ContentFile(image.content)
                         )
                 login(request, user)
-                messages.success(request, f"Welcome {user.username}")
+                messages.success(request, f"Welcome, {user.first_name}!")
                 return redirect(reverse("core:home"))
     except KakaoException as error:
         messages.error(request, error)
@@ -213,11 +213,27 @@ class UserPofileView(DetailView):
     model = models.User
     context_object_name = "user_obj"
 
-    # override context
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+    # # override context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     return context
 
 
 class UpdateUserView(UpdateView):
-    pass
+    """ UpdateUserView Definition """
+
+    model = models.User
+    template_name = "users/update-profile.html"
+    fields = (
+        "first_name",
+        "last_name",
+        "avatar",
+        "gender",
+        "bio",
+        "birthdate",
+        "language",
+        "currency",
+    )
+
+    def get_object(self, queryset="None"):
+        return self.request.user

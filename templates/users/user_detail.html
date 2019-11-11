@@ -11,7 +11,13 @@ Your Profile
     {% include "mixins/user_avatar.html" with user=user_obj %}
 
     <div class="my-4">
-        <span class="text-2xl">{{user_obj.username}}</span>
+        <span class="text-2xl">
+            {% if user == user_obj %}
+            {{user_obj.first_name}}
+            {% else %}
+            {{user_obj.username}}
+            {% endif %}
+        </span>
         {% if user_obj.superhost %}
         <i class="fas fa-check-circle text-teal-400 ml-px"></i>
         {% endif %}
