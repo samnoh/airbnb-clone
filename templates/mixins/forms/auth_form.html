@@ -1,4 +1,4 @@
-<form class="w-full" method="POST">
+<form class="w-full" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 
     {% if form.non_field_errors %}

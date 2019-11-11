@@ -79,4 +79,16 @@ input {
     }
 }
 
+textarea {
+    @apply h-16 w-full border border-gray-600 p-1 font-light resize-none;
+
+    &:focus {
+        @apply outline-none border-teal-500;
+    }
+}
+
+select {
+    @apply h-10 w-full border border-gray-600;
+}
+
 @tailwind utilities;
