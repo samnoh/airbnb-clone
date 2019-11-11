@@ -20,8 +20,11 @@
 <kbd>
     <img src="img/main_page.png" width="100%" />
 </kbd>
-<br>
-<br>
+
+<kbd>
+    <img src="img/profile_page.png" width="100%" />
+</kbd>
+
 <kbd>
     <img src="img/login_page.png" width="100%" />
 </kbd>

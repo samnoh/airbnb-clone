@@ -31,8 +31,9 @@ Your Profile
 </div>
 
 {% if user_obj.rooms.count > 0 %}
-<div class="container mx-auto flex flex-col items-center mb-24">
-    <h3 class="mb-12 text-2xl">{{user_obj.username}}'s Rooms</h3>
+<div class="w-11/12 h-px mx-auto mt-4 mb-8 bg-gray-400"></div>
+<div class="container mx-auto flex flex-col items-center mb-12">
+    <h3 class="mb-12 text-2xl">{{user_obj.first_name}}'s Rooms</h3>
     <div class="w-full flex flex-wrap">
         {% for room in user_obj.rooms.all %}
         {% include 'mixins/room_card.html' with room=room %}
