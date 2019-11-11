@@ -29,4 +29,50 @@ input {
     }
 }
 
+@keyframes messageFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    5% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    95% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+.message {
+    animation: messageFadeIn 3s ease-in-out forwards;
+
+    &.error {
+        @apply bg-red-600;
+    }
+
+    &.debug {
+        @apply bg-gray-700;
+    }
+
+    &.info {
+        @apply bg-green-600;
+    }
+
+    &.success {
+        @apply bg-blue-600;
+    }
+
+    &.warning {
+        @apply bg-yellow-500;
+    }
+}
+
 @tailwind utilities;
