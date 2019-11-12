@@ -83,7 +83,7 @@
             <div>
                 {% for review in room.reviews.all %}
                 <div class="border-section">
-                    <div class="mb-4 mt-8 flex">
+                    <div class="mb-4 flex">
                         <div>
                             {% include "mixins/user_avatar.html" with user=reivew.user h_and_w='w-12 h-12' text='text-xl' %}
                         </div>
