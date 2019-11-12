@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.views.generic import ListView, DetailView, UpdateView, View
+from django.views.generic import ListView, DetailView, UpdateView, FormView, View
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.contrib import messages
@@ -155,7 +155,7 @@ def delete_photo(request, room_pk, photo_pk):
 
 
 class EditPhotoView(user_mixins.LoggedInOnlyView, SuccessMessageMixin, UpdateView):
-    """ EditPhotoView """
+    """ EditPhotoView Definition """
 
     model = models.Photo
     template_name = "rooms/photo_edit.html"
@@ -166,3 +166,18 @@ class EditPhotoView(user_mixins.LoggedInOnlyView, SuccessMessageMixin, UpdateVie
     def get_success_url(self):
         room_pk = self.kwargs.get("room_pk")
         return reverse("rooms:photos", kwargs={"pk": room_pk})
+
+
+class AddPhotoView(user_mixins.LoggedInOnlyView, SuccessMessageMixin, FormView):
+    """ AddPhotoView Definition """
+
+    model = models.Photo
+    template_name = "rooms/photo_create.html"
+    fields = ("caption", "file")
+    form_class = forms.CreatePhotoForm
+
+    def form_valid(self, form):
+        pk = self.kwargs.get("pk")
+        form.save(pk)
+        messages.success(self.request, "Photo uploaded")
+        return redirect(reverse("rooms:photos", kwargs={"pk": pk}))

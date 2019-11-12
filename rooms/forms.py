@@ -4,9 +4,7 @@ from . import models
 
 
 class SearchForm(forms.Form):
-    """
-    SearchForm Definition
-    """
+    """ SearchForm Definition """
 
     city = forms.CharField(initial="Anywhere")
     country = CountryField(default="US").formfield()
@@ -30,3 +28,17 @@ class SearchForm(forms.Form):
         queryset=models.Facility.objects.all(),
         widget=forms.CheckboxSelectMultiple,
     )
+
+
+class CreatePhotoForm(forms.ModelForm):
+    """ CreatePhotoForm Definition """
+
+    class Meta:
+        model = models.Photo
+        fields = ("caption", "file")
+
+    def save(self, pk, *args, **kwargs):
+        photo = super().save(commit=False)
+        room = models.Room.objects.get(pk=pk)
+        photo.room = room
+        photo.save()
