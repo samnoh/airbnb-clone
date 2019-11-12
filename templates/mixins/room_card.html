@@ -1,6 +1,6 @@
 <div class="w-1/4 px-2 mb-8">
     <a href="{% url 'rooms:detail' room.pk %}">
-        <div class="w-full h-64 bg-cover bg-center rounded-lg mb-2" style="background-image: url({{room.first_photo}});"></div>
+        <div class="w-full h-64 bg-cover bg-center rounded-lg mb-2" style="background-image: url({{room.get_first_photo}});"></div>
         <div class="flex justify-between mb-2">
             <div class="w-11/12 truncate">
                 {% if room.host.superhost %}
@@ -9,7 +9,7 @@
                 <span class="text-sm text-gray-600">{{room.city}}, {{room.country.name}}</span>
             </div>
             <span class="text-sm flex mt-px">
-                <i class="fas fa-star text-red-500 text-xs mr-1 leading-relaxed"></i>{{room.total_rating}}
+                <i class="fas fa-star text-red-500 text-xs mr-1 leading-relaxed"></i>{{room.get_total_rating}}
             </span>
         </div>
         <div class="text-gray-700 truncate">{{room.name}}</div>

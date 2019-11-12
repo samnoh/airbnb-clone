@@ -107,7 +107,7 @@ class Room(core_models.AbstractTimeStampModel):
     def get_absolute_url(self):
         return reverse("rooms:detail", kwargs={"pk": self.pk})
 
-    def total_rating(self):
+    def get_total_rating(self):
         all_reviews = self.reviews.all()
         all_reviews_size = len(all_reviews)
         if all_reviews_size:
@@ -117,6 +117,12 @@ class Room(core_models.AbstractTimeStampModel):
             return round((all_ratings / all_reviews_size), 1)
         return 0
 
-    def first_photo(self):
+    def get_first_photo(self):
         photo, = self.photos.all()[:1]
         return photo.file.url
+
+    def get_next_four_photos(self):
+        photos = self.photos.all()[1:5]
+        return photos
+
+    get_total_rating.short_description = "Total Rating"

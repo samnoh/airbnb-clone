@@ -14,6 +14,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         number = options.get("number")  # default number is 1 if no value
         seeder = Seed.seeder()
-        seeder.add_entity(User, number, {"is_staff": False, "is_superuser": False})
+        seeder.add_entity(
+            User, number, {"is_staff": False, "is_superuser": False, "avatar": None}
+        )
         seeder.execute()
         self.stdout.write(self.style.SUCCESS(f"{number} users created!"))

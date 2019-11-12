@@ -6,9 +6,9 @@ Home
 
 {% block content %}
 <div class="container mx-auto font-light pb-10">
-    <div class="bg-blue-800 h-25vh mt-32 mb-24 -mx-10 rounded-lg bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1517446915321-65e972f1b494?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)"></div>
+    <div class="bg-blue-800 h-25vh mt-32 mb-24 -mx-4 rounded-lg bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1517446915321-65e972f1b494?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)"></div>
 
-    <div class="flex flex-wrap -mx-10 mb-10">
+    <div class="flex flex-wrap -mx-4 mb-6">
         {% for room in rooms %}
         {% include 'mixins/room_card.html' with room=room %}
         {% endfor %}
