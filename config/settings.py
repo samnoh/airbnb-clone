@@ -158,3 +158,8 @@ GITHUB_SECRET = os.environ.get("GITHUB_SECRET")
 # Kakao OAuth config
 
 KAKAO_ID = os.environ.get("KAKAO_ID")
+
+
+# Auth
+
+LOGIN_URL = "/users/login"

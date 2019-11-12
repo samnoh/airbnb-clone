@@ -1,6 +1,6 @@
 <div class="mb-3">
-    {{field.label}}
-    {{field}}
+    <div class="text-sm text-gray-600 mb-1">{{field.label}}</div>
+    <div class="mb-6">{{field}}</div>
     {% if field.errors %}
     {% for error in field.errors %}
     <div class="ml-1 mt-2 text-red-700 font-medium text-sm">{{error}}</div>

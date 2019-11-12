@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-Update Room
+Edit Photo
 {% endblock page_title %}
 
 {% block search-bar %}
@@ -10,10 +10,6 @@ Update Room
 {% block content %}
 
 <div class="container md:w-1/2 lg:w-5/12 xl:w-1/4 mx-auto my-10 flex flex-col items-center border border-gray-400 p-6">
-    {% include 'mixins/room/room_form.html' with form=form cta="Update Room" %}
-
-    <div class="w-full text-center mt-6">
-        <a class="text-teal-500 font-mediu hover:underline" href="{% url "rooms:photos" room.pk %}">Edit photos</a>
-    </div>
+    {% include 'mixins/room/room_form.html' with form=form cta="Update Photo" %}
 </div>
 {% endblock content %}

@@ -38,7 +38,7 @@ select {
 }
 
 .btn {
-  @apply w-full text-center rounded-sm py-4 font-light text-lg;
+  @apply w-full text-center rounded py-2 font-light text-lg;
 
   &.btn--small {
     @apply w-3/5 py-3 rounded-lg;
@@ -46,7 +46,7 @@ select {
 }
 
 .message {
-  animation: messageFadeIn 3s ease-in-out forwards;
+  animation: messageFadeIn 2s ease-in-out forwards;
 
   &.error {
     @apply bg-red-600;
