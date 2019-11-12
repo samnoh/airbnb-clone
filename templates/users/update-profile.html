@@ -11,7 +11,7 @@ Update Profile
 
 <div class="container md:w-1/2 lg:w-5/12 xl:w-1/4 mx-auto my-10 flex flex-col items-center border border-gray-400 p-6">
 
-    {% include 'mixins/forms/auth_form.html' with form=form cta="Update Profile" %}
+    {% include 'mixins/auth/auth_form.html' with form=form cta="Update Profile" %}
 
     {% if object.login_method == "email" %}
     <div class="w-full h-px my-4 bg-gray-400"></div>
