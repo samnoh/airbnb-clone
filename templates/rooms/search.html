@@ -8,7 +8,7 @@ Search
 {% endblock search_bar %}
 
 {% block content %}
-<form method="GET" action="{% url "rooms:search" %}">
+<form method="GET" action="{% url 'rooms:search' %}">
     {{form.as_p}}
     <button>Search</button>
 </form>

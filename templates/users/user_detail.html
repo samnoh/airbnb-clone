@@ -22,7 +22,7 @@ Your Profile
     <div class="mb-10 px-2">{{user_obj.bio}}</div>
 
     {% if user == user_obj %}
-    <a href="{% url "users:update" %}" class="btn btn--small bg-red-500 text-gray-100">Edit Profile</a>
+    <a href="{% url 'users:update' %}" class="btn btn--small bg-red-500 text-gray-100">Edit Profile</a>
     {% endif %}
 </div>
 

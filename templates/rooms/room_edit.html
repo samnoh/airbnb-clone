@@ -13,7 +13,7 @@ Update Room
     {% include 'mixins/room/room_form.html' with form=form cta="Update Room" %}
 
     <div class="w-full text-center mt-6">
-        <a class="text-teal-500 font-mediu hover:underline" href="{% url "rooms:photos" room.pk %}">Edit photos</a>
+        <a class="text-teal-500 font-mediu hover:underline" href="{% url 'rooms:photos' room.pk %}">Edit photos</a>
     </div>
 </div>
 {% endblock content %}
