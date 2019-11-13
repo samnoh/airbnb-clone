@@ -168,7 +168,7 @@ class EditPhotoView(user_mixins.LoggedInOnlyView, SuccessMessageMixin, UpdateVie
         return reverse("rooms:photos", kwargs={"pk": room_pk})
 
 
-class AddPhotoView(user_mixins.LoggedInOnlyView, SuccessMessageMixin, FormView):
+class AddPhotoView(user_mixins.LoggedInOnlyView, FormView):
     """ AddPhotoView Definition """
 
     model = models.Photo
