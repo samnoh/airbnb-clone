@@ -11,7 +11,7 @@ def is_booked(room, day):
         return
     try:
         date = datetime.datetime(year=day.year, month=day.month, day=day.day)
-        reservation_models.BookedDay.objects.get(day=date, reservation__room=room)
+        reservation_models.BookedDay.objects.get(date=date, reservation__room=room)
         return True
     except reservation_models.BookedDay.DoesNotExist:
         return False
