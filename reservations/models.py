@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.utils import timezone
 from core import models as core_models
@@ -5,10 +6,22 @@ from users import models as user_models
 from rooms import models as room_models
 
 
+class BookedDay(core_models.AbstractTimeStampModel):
+    """ BookedDay Model Definition """
+
+    day = models.DateField()
+    reservation = models.ForeignKey("Reservation", on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Booked Day"
+        verbose_name_plural = "Booked Days"
+
+    def __str__(self):
+        return str(self.day)
+
+
 class Reservation(core_models.AbstractTimeStampModel):
-    """
-    Reservation Model Definition
-    """
+    """ Reservation Model Definition """
 
     STATUS_PENDING = "pending"
     STATUS_CONFIRMED = "confirmed"
@@ -46,3 +59,19 @@ class Reservation(core_models.AbstractTimeStampModel):
         return now > self.check_out
 
     is_finished.boolean = True
+
+    def save(self, *args, **kwargs):
+        if self.pk is None:
+            start = self.check_in
+            end = self.check_out
+            day_diff = end - start
+            existing_booked_Day = BookedDay.objects.filter(
+                day__range=(start, end)
+            ).exists()
+            if not existing_booked_Day:
+                super().save(*args, **kwargs)
+                for i in range(day_diff.days + 1):
+                    day = start + datetime.timedelta(days=i)
+                    BookedDay.objects.create(day=day, reservation=self)
+                return
+        return super().save(*args, **kwargs)

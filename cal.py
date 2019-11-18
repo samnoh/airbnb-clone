@@ -2,13 +2,15 @@ from django.utils import timezone
 import calendar
 
 
-class Day:
-    def __init__(self, number, past):
-        self.number = number
+class Date:
+    def __init__(self, day, month, year, past):
+        self.day = day
+        self.month = month
+        self.year = year
         self.past = past
 
     def __str__(self):
-        return str(self.number)
+        return str(self.day)
 
 
 class Calendar(calendar.Calendar):
@@ -44,7 +46,7 @@ class Calendar(calendar.Calendar):
                 if month == self.month:
                     if day <= today:
                         past = True
-                new_day = Day(day, past)
+                new_day = Date(day=day, past=past, month=self.month, year=self.year)
                 days.append(new_day)
         return days
 
