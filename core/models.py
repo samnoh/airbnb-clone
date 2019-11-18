@@ -1,4 +1,5 @@
 from django.db import models
+from . import managers
 
 
 class AbstractTimeStampModel(models.Model):
@@ -6,6 +7,7 @@ class AbstractTimeStampModel(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    objects = managers.CustomReservationManager()
 
     class Meta:
         abstract = True
