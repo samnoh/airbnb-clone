@@ -118,12 +118,10 @@
                 <span></span>
                 {% else %}
                 {% is_booked room day as is_booked_bool %}
-                {% if day.past %}
-                <span class="rounded w-full text-center p-1 {% if day.isToday %}bg-gray-400 text-white{% else %}bg-gray-200 text-gray-400 {% endif %}">{{day}}</span>
-                {% elif is_booked_bool %}
-                <span class="rounded bg-gray-200 w-full text-center p-1 text-gray-400 line-through">{{day}}</span>
+                {% if day.past or is_booked_bool %}
+                <span class="rounded w-full text-center p-1 {% if day.isToday %}bg-gray-400 text-white{% else %}bg-gray-200 text-gray-400{% endif %}">{{day}}</span>
                 {% else %}
-                <span class="bg-gray-200 w-full text-center rounded text-gray-700 p-1 hover:bg-teal-400 hover:text-white hover:font-medium cursor-pointer">{{day}}</span>
+                <span class="bg-gray-200 rounded w-full text-center p-1 text-gray-700 hover:bg-teal-400 hover:text-white hover:font-medium cursor-pointer">{{day}}</span>
                 {% endif %}
                 {% endif %}
                 {% endfor %}

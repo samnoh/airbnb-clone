@@ -6,7 +6,9 @@ class LoginForm(forms.Form):
     """ LoginForm """
 
     email = forms.EmailField(widget=forms.EmailInput(attrs={"placeholder": "Email"}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder": "Password"}))
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={"placeholder": "Password"})
+    )
 
     def clean(self):
         email = self.cleaned_data.get("email")
@@ -28,8 +30,12 @@ class SignUpForm(forms.ModelForm):
         model = models.User
         fields = ("first_name", "last_name", "email")
         widgets = {
-            "first_name": forms.TextInput(attrs={"placeholder": "First Name", "required": True}),
-            "last_name": forms.TextInput(attrs={"placeholder": "Last Name", "required": True}),
+            "first_name": forms.TextInput(
+                attrs={"placeholder": "First Name", "required": True}
+            ),
+            "last_name": forms.TextInput(
+                attrs={"placeholder": "Last Name", "required": True}
+            ),
             "email": forms.EmailInput(attrs={"placeholder": "Email", "required": True}),
         }
 
