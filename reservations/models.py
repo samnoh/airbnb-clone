@@ -4,6 +4,7 @@ from django.utils import timezone
 from core import models as core_models
 from users import models as user_models
 from rooms import models as room_models
+from . import managers
 
 
 class BookedDay(core_models.AbstractTimeStampModel):
@@ -44,6 +45,7 @@ class Reservation(core_models.AbstractTimeStampModel):
     room = models.ForeignKey(
         room_models.Room, related_name="reservations", on_delete=models.CASCADE
     )
+    objects = managers.CustomReservationManager()
 
     def __str__(self):
         return f"{self.room} - {self.check_in}"
@@ -71,7 +73,6 @@ class Reservation(core_models.AbstractTimeStampModel):
                 date__range=(start, end)
             ).exists()  # return True if it is booked
             if not is_booked:
-                print(day_diff.days)
                 super().save(*args, **kwargs)
                 for i in range(day_diff.days):
                     date = start + datetime.timedelta(days=i)
