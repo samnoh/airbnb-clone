@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-20 21:56+1300\n"
+"POT-Creation-Date: 2019-11-20 22:33+1300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,20 +37,32 @@ msgid "Create Room"
 msgstr "방 등록하기"
 
 #: templates/partials/nav.html:16
+msgid "Favs"
+msgstr "즐겨찾기"
+
+#: templates/partials/nav.html:17
 msgid "Profile"
 msgstr "프로필"
 
-#: templates/partials/nav.html:17
+#: templates/partials/nav.html:18
 msgid "Log out"
 msgstr "로그아웃"
 
-#: templates/partials/nav.html:19
+#: templates/partials/nav.html:20
 msgid "Log in"
 msgstr "로그인"
 
-#: templates/partials/nav.html:20
+#: templates/partials/nav.html:21
 msgid "Sign up"
 msgstr "회원가입"
+
+#: templates/rooms/room_detail.html:32
+msgid "Remove from Favourites"
+msgstr "즐겨찾기에서 삭제"
+
+#: templates/rooms/room_detail.html:34
+msgid "Save to Favourites"
+msgstr "즐겨찾기에 추가"
 
 #: templates/rooms/room_list.html:25
 #, python-format
