@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect, reverse
 from django.http import Http404
+from django.contrib.auth.decorators import login_required
 from django.views.generic import View
 from django.db.models import Q
 from users import models as user_models
+from users import mixins as user_mixins
 from . import models, forms
 
 
+@login_required
 def start_conversation(request, host_pk, guest_pk):
     host = user_models.User.objects.get_or_none(pk=host_pk)
     guest = user_models.User.objects.get_or_none(pk=guest_pk)
@@ -20,7 +23,7 @@ def start_conversation(request, host_pk, guest_pk):
         return redirect(reverse("conversations:detail", kwargs={"pk": conversation.pk}))
 
 
-class ConversationDetailView(View):
+class ConversationDetailView(user_mixins.LoggedInOnlyView, View):
     """ ConversationDetailView Definition """
 
     def get(self, *args, **kwargs):
