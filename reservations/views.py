@@ -3,8 +3,10 @@ from django.http import Http404
 from django.views.generic import View
 from django.contrib import messages
 from django.shortcuts import render, redirect, reverse
+from django.contrib.auth.decorators import login_required
 from rooms import models as room_models
 from reviews import forms as reivew_forms
+from users import mixins as user_mixins
 from . import models as reservation_models
 
 
@@ -14,6 +16,7 @@ class CreateError(Exception):
     pass
 
 
+@login_required
 def create(request, room, year, month, day):
     days = int(request.GET.get("days", 1))
     try:
@@ -31,10 +34,15 @@ def create(request, room, year, month, day):
             check_in=date,
             check_out=date + datetime.timedelta(days=days),
         )  # succssefully booked
-        return redirect(reverse("reservations:detail", kwargs={"pk": reservation.pk}))
+        if reservation.pk is not None:
+            return redirect(
+                reverse("reservations:detail", kwargs={"pk": reservation.pk})
+            )
+        else:
+            return redirect(reverse("rooms:detail", kwargs={"pk": room.pk}))
 
 
-class ReservationDetailView(View):
+class ReservationDetailView(user_mixins.LoggedInOnlyView, View):
     """ ReservationDetailView Definition """
 
     def get(self, *args, **kwargs):
@@ -53,6 +61,7 @@ class ReservationDetailView(View):
         )
 
 
+@login_required
 def edit_reservation(request, pk, verb):
     reservation = reservation_models.Reservation.objects.get_or_none(pk=pk)
     if not reservation or (
