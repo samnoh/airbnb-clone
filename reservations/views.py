@@ -28,17 +28,16 @@ def create(request, room, year, month, day):
         messages.error(request, "Cannot book the room")
         return redirect(reverse("core:home"))
     except reservation_models.BookedDay.DoesNotExist:
+        check_out = date + datetime.timedelta(days=days)
         reservation = reservation_models.Reservation.objects.create(
-            guest=request.user,
-            room=room,
-            check_in=date,
-            check_out=date + datetime.timedelta(days=days),
+            guest=request.user, room=room, check_in=date, check_out=check_out
         )  # succssefully booked
         if reservation.pk is not None:
             return redirect(
                 reverse("reservations:detail", kwargs={"pk": reservation.pk})
             )
         else:
+            messages.error(request, "Cannot book the room")
             return redirect(reverse("rooms:detail", kwargs={"pk": room.pk}))
 
 
