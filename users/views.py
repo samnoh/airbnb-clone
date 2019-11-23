@@ -1,4 +1,5 @@
 import requests
+from django.utils.translation import gettext_lazy as _
 from django.http import HttpResponse
 from django.utils import translation
 from django.conf import settings
@@ -19,7 +20,6 @@ class LoginView(mixins.LoggedOutOnlyView, FormView):
 
     template_name = "users/login.html"
     form_class = forms.LoginForm
-    # success_url = reverse_lazy("core:home")
 
     def form_valid(self, form):
         email = form.cleaned_data.get("email")
@@ -40,7 +40,7 @@ class LoginView(mixins.LoggedOutOnlyView, FormView):
 
 def log_out(request):
     logout(request)
-    messages.info(request, "Logged out successfully")
+    messages.info(request, _("Logged out successfully"))
     return redirect(reverse("core:home"))
 
 
@@ -69,9 +69,9 @@ def complete_verification(request, key):
         user.email_verified = True
         user.email_secret = ""
         user.save()
-        # TODO: add success messages
+        messages.success(request, _("Successfully verified"))
     except models.User.DoesNotExist:
-        # TODO: add error messages
+        messages.error(request, _("That user does not exist"))
         pass
     return redirect(reverse("core:home"))
 

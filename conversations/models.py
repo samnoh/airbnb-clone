@@ -4,9 +4,7 @@ from users import models as user_models
 
 
 class Message(core_models.AbstractTimeStampModel):
-    """
-    Message Model Definition
-    """
+    """ Message Model Definition """
 
     message = models.TextField()
     user = models.ForeignKey(
@@ -21,9 +19,7 @@ class Message(core_models.AbstractTimeStampModel):
 
 
 class Conversation(core_models.AbstractTimeStampModel):
-    """
-    Conversation Model Definition
-    """
+    """ Conversation Model Definition """
 
     participants = models.ManyToManyField(
         user_models.User, related_name="conversations", blank=True

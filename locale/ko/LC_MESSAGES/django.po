@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-20 22:33+1300\n"
+"POT-Creation-Date: 2019-11-23 21:16+1300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: reviews/views.py:19
+msgid "Your review is successfully sumbitted"
+msgstr "리뷰가 성공적으로 등록되었습니다"
 
 #: templates/base.html:23
 msgid "Search by City"
@@ -73,38 +77,50 @@ msgstr "페이지 %(current_page)s 중 %(total_pages)s"
 msgid "No permission"
 msgstr "권한이 없습니다"
 
-#: users/models.py:20
+#: users/models.py:21
 msgid "Male"
 msgstr "남자"
 
-#: users/models.py:21
+#: users/models.py:22
 msgid "Female"
 msgstr "여자"
 
-#: users/models.py:22
+#: users/models.py:23
 msgid "Other"
 msgstr "기타"
 
-#: users/models.py:29
+#: users/models.py:30
 msgid "English"
 msgstr "영어"
 
-#: users/models.py:30
+#: users/models.py:31
 msgid "Korean"
 msgstr "한국어"
 
-#: users/models.py:50
+#: users/models.py:51
 msgid "gender"
 msgstr "성별"
 
-#: users/models.py:52
+#: users/models.py:53
 msgid "bio"
 msgstr "바이오"
 
-#: users/models.py:55
+#: users/models.py:56
 msgid "language"
 msgstr "언어"
 
-#: users/models.py:82
+#: users/models.py:84
 msgid "Verify Airbnb Account"
 msgstr "계정 인증"
+
+#: users/views.py:44
+msgid "Logged out successfully"
+msgstr "성공적으로 로그아웃하였습니다"
+
+#: users/views.py:73
+msgid "Successfully verified"
+msgstr "성공적으로 확인하였습니다"
+
+#: users/views.py:75
+msgid "That user does not exist"
+msgstr "유저가 존재하지 않습니다"

@@ -23,7 +23,7 @@ class LoggedInOnlyView(LoginRequiredMixin):
 
 
 class EmailLoginOnlyView(UserPassesTestMixin):
-    """ EmailLoginOnlyView """
+    """ EmailLoginOnlyView Definition """
 
     def test_func(self):
         return self.request.user.login_method == "email"
