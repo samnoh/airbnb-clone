@@ -1,7 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import UserManager
 
 
-class CustomReservationManager(models.Manager):
+class CustomReservationManager(UserManager, models.Manager):
     """ CustomReservationManager Definition """
 
     def get_or_none(self, **kwargs):
