@@ -68,7 +68,7 @@ class User(AbstractUser):
     login_method = models.CharField(
         choices=LOGIN_CHOICES, max_length=50, default=LOGIN_EMAIL
     )
-    objects = core_managers.CustomReservationManager()
+    objects = core_managers.CustomUserManager()
 
     def get_absolute_url(self):
         return reverse("users:profile", kwargs={"pk": self.pk})
