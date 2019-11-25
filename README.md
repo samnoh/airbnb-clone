@@ -1,19 +1,20 @@
 # Airbnb Clone
 
-- Django v2.2.5
+-   Django v2.2
+-   AWS EB & RDS
 
 ## Styling
 
-- Tailwind CSS
+-   Tailwind CSS
 
 ## Email
 
-- Mailgun
+-   Mailgun
 
 ## OAuth
 
-- GitHub
-- Kakao
+-   GitHub
+-   Kakao
 
 ## Screenshots
 
@@ -29,6 +30,11 @@
 <br>
 <kbd>
     <img src="img/profile_page.png" width="100%" />
+</kbd>
+<br>
+<br>
+<kbd>
+    <img src="img/conversation_page.png" width="100%" />
 </kbd>
 <br>
 <br>
