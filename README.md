@@ -1,7 +1,6 @@
 # Airbnb Clone
 
 -   Django v2.2
--   AWS EB & RDS
 
 ## Styling
 
@@ -15,6 +14,14 @@
 
 -   GitHub
 -   Kakao
+
+## Deployment
+
+-   AWS EB & RDS (PostgreSQL)
+
+## App Monitoring
+
+-   Sentry
 
 ## Screenshots
 
