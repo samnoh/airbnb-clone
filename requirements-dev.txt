@@ -1,31 +1,26 @@
-################################################################################
-# This requirements file has been automatically generated from `Pipfile` with
-# `pipenv-to-requirements`
-#
-#
-# This has been done to maintain backward compatibility with tools and services
-# that do not support `Pipfile` yet.
-#
-# Do NOT edit it directly, use `pipenv install [-d]` to modify `Pipfile` and
-# `Pipfile.lock` and then regenerate `requirements*.txt`.
-################################################################################
-
-appdirs==1.4.3
-attrs==19.3.0
+-i https://pypi.org/simple/
+appdirs==1.4.4
+attrs==21.2.0
 black==19.10b0
-certifi==2019.9.11
-click==7.0
+certifi==2021.5.30
+click==8.0.1
+distlib==0.3.2
 entrypoints==0.3
+filelock==3.0.12
 flake8==3.7.9
+importlib-metadata==4.5.0 ; python_version < '3.8'
 mccabe==0.6.1
-pathspec==0.6.0
-pbr==5.4.3
+pathspec==0.8.1
+pbr==5.6.0
 pipenv-to-requirements==0.8.2
-pipenv==2018.11.26
+pipenv==2021.5.29
 pycodestyle==2.5.0
 pyflakes==2.1.1
-regex==2019.11.1
-toml==0.10.0
-typed-ast==1.4.0
-virtualenv-clone==0.5.3
-virtualenv==16.7.8
+regex==2021.4.4
+six==1.16.0
+toml==0.10.2
+typed-ast==1.4.3
+typing-extensions==3.10.0.0 ; python_version < '3.8'
+virtualenv-clone==0.5.4
+virtualenv==20.4.7
+zipp==3.4.1
